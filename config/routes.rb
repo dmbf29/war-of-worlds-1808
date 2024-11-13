@@ -1,10 +1,21 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
-
-  # Defines the root path route ("/")
-  # root "posts#index"
+  resources :planets, only: [:show] do
+    resources :aliens, only: [:new, :create]
+  end
+  resources :aliens, only: [:destroy]
 end
+
+
+
+# As a user I can see one planet's aliens
+#  planets#show
+#  get '/planets/:id', to: 'planets#show', as: :planet
+#
+# As a user I can add an alien to a planet
+# aliens#new / aliens#create
+#  get 'planets/:planet_id/aliens/new'
+#  post 'planets/:planet_id/aliens'
+#
+# As a user I can remove an alien
+# aliens#destroy
+#  delete 'aliens/:id'

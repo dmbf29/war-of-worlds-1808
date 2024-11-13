@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Welcome a new Alien to <%= @planet.name %></h1>
+  <%= simple_form_for [@planet, @alien] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :image_url %>
+    <%= f.input :species %>
+    <%= f.submit class: 'btn btn-success mt-2' %>
+  <% end %>
+
+</div>
