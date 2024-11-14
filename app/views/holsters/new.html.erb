@@ -1,0 +1,7 @@
+<div class="container">
+  <h1>Add a Weapon to <%= @alien.name %></h1>
+  <%= simple_form_for [@alien, @holster] do |f| %>
+    <%= f.association :weapon, collection: @weapons, include_blank: false %>
+    <%= f.submit 'Add', class: 'btn btn-danger' %>
+  <% end %>
+</div>

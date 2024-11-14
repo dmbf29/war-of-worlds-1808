@@ -69,6 +69,7 @@ end
 # Custom Added
 gem "bootstrap", "~> 5.2"
 gem "autoprefixer-rails"
+gem 'faker'
 gem "font-awesome-sass", "~> 6.1"
 gem 'ostruct'
 gem "simple_form"

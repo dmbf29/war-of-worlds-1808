@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_13_081608) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_14_080842) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_13_081608) do
     t.index ["planet_id"], name: "index_aliens_on_planet_id"
   end
 
+  create_table "holsters", force: :cascade do |t|
+    t.bigint "alien_id", null: false
+    t.bigint "weapon_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["alien_id"], name: "index_holsters_on_alien_id"
+    t.index ["weapon_id"], name: "index_holsters_on_weapon_id"
+  end
+
   create_table "planets", force: :cascade do |t|
     t.string "name"
     t.string "banner_url"
@@ -31,5 +40,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_13_081608) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "weapons", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "aliens", "planets"
+  add_foreign_key "holsters", "aliens"
+  add_foreign_key "holsters", "weapons"
 end
