@@ -67,8 +67,10 @@ group :test do
 end
 
 # Custom Added
-gem "bootstrap", "~> 5.2"
 gem "autoprefixer-rails"
+gem "bootstrap", "~> 5.2"
+gem "cloudinary"
+gem "dotenv-rails"
 gem 'faker'
 gem "font-awesome-sass", "~> 6.1"
 gem 'ostruct'

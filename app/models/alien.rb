@@ -3,4 +3,5 @@ class Alien < ApplicationRecord
   has_many :holsters, dependent: :destroy
   has_many :weapons, through: :holsters
   validates :name, presence: true
+  has_one_attached :photo
 end
